@@ -1,5 +1,6 @@
 import pygame 
 from checkers.constants import *
+from checkers.game import Board
 
 FBS = 60
 Win = pygame.display.set_mode((WIDTH,HEIGHT))
@@ -9,6 +10,7 @@ pygame.display.set_caption('Checkers Game')
 def main():
     run = True
     clock = pygame.time.Clock() 
+    new_board = Board()
 
     while run:
         clock.tick(FBS)
@@ -18,5 +20,8 @@ def main():
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pass
+        new_board.draw(Win)
+        pygame.display.update()
+        
     pygame.quit()
 main()
